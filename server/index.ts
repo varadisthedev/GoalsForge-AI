@@ -2,20 +2,14 @@ import express from "express";
 import chalk from "chalk";
 import dotenv from "dotenv";
 
-import {pool} from "./src/db.ts"; // named export
-// importing routes
+import { pool } from "./src/db/postgresConnection.ts"; // named export
 import userRoutes from "./src/routes/userRoute.ts"
 
-dotenv.config();
 const log = console.log;
 const PORT = process.env.PORT;
-
 const app = express()
 
-
-// app.get("/",(req,res)=>{
-//     res.send("hello from bun + express")
-// })
+dotenv.config();
 
 // app.get("/users", async (req, res) => {
 //   try {
@@ -36,10 +30,12 @@ app.use("/", userRoutes);
 
 // Optional: Add a separate API router for versioning
 // app.use("/api/v1", userRoutes);
+log("gen ai integration:");
+import geminiAPIfunction from "./src/services/geminiAPI.ts";
+let result = await geminiAPIfunction("explain what is black holes in simple words");
+log(result);
 
-
-
-app.listen(PORT||3000,()=>{
+app.listen(PORT || 3000, () => {
     log(chalk.gray("###############################"));
-    log(chalk.blue("server started at port: ",PORT));
+    log(chalk.blue("server started at port: ", PORT));
 })
