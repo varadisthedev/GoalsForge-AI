@@ -15,6 +15,8 @@ router.get("/users/:id", getUserById);
 // #POST 
 router.post("/users", createUser);
 
+// # patch 
+router.patch("/users/:id",updateUser)
 
 // upload route
 router.get("/check",checkController);
