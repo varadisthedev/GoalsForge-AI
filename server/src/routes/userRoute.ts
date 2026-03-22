@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { getHome, getUsers, getUserById, createUser } from "../controllers/userController.ts";
-import {checkController} from "../controllers/uploadController.ts"
+import { getUsers, getUserById, createUser } from "../controllers/userController.ts";
+import { checkController } from "../controllers/uploadController.ts"
+import { getHome } from "../controllers/defaultController.ts" // some default controllers 
 
 const router = Router(); // express router 
 
@@ -16,9 +17,9 @@ router.get("/users/:id", getUserById);
 router.post("/users", createUser);
 
 // # patch 
-router.patch("/users/:id",updateUser)
+// router.patch("/users/:id", updateUser)
 
 // upload route
-router.get("/check",checkController);
+router.get("/check", checkController);
 
 export default router;

@@ -30,10 +30,10 @@ app.use("/", userRoutes);
 
 // Optional: Add a separate API router for versioning
 // app.use("/api/v1", userRoutes);
-log("gen ai integration:");
-import geminiAPIfunction from "./src/services/geminiAPI.ts";
-let result = await geminiAPIfunction("explain what is black holes in simple words");
-log(result);
+// log("gen ai integration:");
+// import geminiAPIfunction from "./src/services/geminiAPI.ts";
+// let result = await geminiAPIfunction("explain what is black holes in simple words");
+// log(result);
 
 app.listen(PORT || 3000, () => {
     log(chalk.gray("###############################"));
