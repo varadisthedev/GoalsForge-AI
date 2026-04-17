@@ -26,7 +26,7 @@ export function authMiddleware(
 
     req.user = decoded
 
-    next()
+    next()  // callnext function 
 
   } catch {
     return res.status(401).json({ error: "Invalid token" })
